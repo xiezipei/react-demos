@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 /** 
  * 上面是es6解构赋值写法，等价于

@@ -9,7 +9,9 @@ import React, { Component } from 'react'
 class App extends Component {
     render() {
         return (
-            <div>Hello World!</div>
+            <ul className="my-list">
+                <li>{ false ? 'apple' : 'pear'} </li>
+            </ul>
         )
     }
 }

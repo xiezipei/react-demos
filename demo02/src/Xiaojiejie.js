@@ -9,11 +9,18 @@ class Xiaojiejie extends Component {
             list: []    // 服务列表
         }
     }
+    // 输入框值改变事件
+    inputChange(e) {
+        console.log(e.target.value);
+        this.setState({
+            inputValue: e.target.value
+        })
+    };
     render() {
         return (
             <Fragment>
                 <div>
-                    <input placeholder="请输入" value={ this.state.inputValue } /><button>增加服务</button>
+                    <input placeholder="请输入" value={this.state.inputValue} onChange={this.inputChange.bind(this)} /><button>增加服务</button>
                 </div>
                 <ul>
                     <li>头部按摩</li>

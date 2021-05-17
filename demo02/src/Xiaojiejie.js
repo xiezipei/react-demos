@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import './style.css'
 
 class Xiaojiejie extends Component {
     // JS的构造函数，由其他函数执行
@@ -43,7 +44,7 @@ class Xiaojiejie extends Component {
                      */
                 }
                 <div>
-                    <input placeholder="请输入" value={ this.state.inputValue } onChange={ this.inputChange.bind(this) } />
+                    <input className="border-yellow" placeholder="请输入" value={ this.state.inputValue } onChange={ this.inputChange.bind(this) } />
                     <button onClick={ this.addList.bind(this) }>增加服务</button>
                 </div>
                 <ul>

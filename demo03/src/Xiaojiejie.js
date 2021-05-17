@@ -35,14 +35,6 @@ class Xiaojiejie extends Component {
     render() {
         return (
             <Fragment>
-                {
-                    // 单行注释
-                    /** 单行注释 */
-                    /**
-                     * 多行注释
-                     * 多行注释
-                     */
-                }
                 <label htmlFor="jspang">加入服务：</label>
                 <div>
                     <input className="border-yellow" placeholder="请输入" value={ this.state.inputValue } onChange={ this.inputChange.bind(this) } />

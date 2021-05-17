@@ -20,6 +20,16 @@ class Xiaojiejie extends Component {
         this.setState({ list: [...this.state.list, this.state.inputValue] })   // 扩展运算符
         this.setState({ inputValue: '' });  // 添加完清空输入框
     }
+    // 删除选项
+    deleteItem(index) {
+        // 记住React是禁止直接操作state的,虽然`this.state.list.splice(index,1)`也管用,
+        // 但是在后期的性能优化上会有很多麻烦,所以一定不要这样操作
+        let list = this.state.list;
+        list.splice(index, 1);
+        this.setState({
+            list: list
+        })
+    }
     // 渲染模板
     render() {
         return (
@@ -29,7 +39,16 @@ class Xiaojiejie extends Component {
                     <button onClick={ this.addList.bind(this) }>增加服务</button>
                 </div>
                 <ul>
-                    { this.state.list.map((item, index) => <li key={ index }>{ item }</li>) }
+                    { 
+                        this.state.list.map((item, index) => {
+                            return (
+                                <li key={ index }>
+                                    { item }
+                                    <button onClick={ this.deleteItem.bind(this, index) }>X</button>
+                                </li>
+                            )
+                        }) 
+                    }
                 </ul>
             </Fragment>
         )

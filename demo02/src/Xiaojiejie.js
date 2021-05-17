@@ -34,12 +34,20 @@ class Xiaojiejie extends Component {
     render() {
         return (
             <Fragment>
+                {
+                    // 单行注释
+                    /** 单行注释 */
+                    /**
+                     * 多行注释
+                     * 多行注释
+                     */
+                }
                 <div>
                     <input placeholder="请输入" value={ this.state.inputValue } onChange={ this.inputChange.bind(this) } />
                     <button onClick={ this.addList.bind(this) }>增加服务</button>
                 </div>
                 <ul>
-                    { 
+                    {
                         this.state.list.map((item, index) => {
                             return (
                                 <li key={ index }>

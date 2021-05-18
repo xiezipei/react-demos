@@ -57,7 +57,7 @@ class Xiaojiejie extends Component {
                                      * </li>
                                      */
                                     }
-                                     <XiaojiejieItem />
+                                     <XiaojiejieItem content={ item } />
                                 </div>
                             )
                         }) 

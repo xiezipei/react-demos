@@ -12,32 +12,32 @@ class Xiaojiejie extends Component {
         }
     }
 
-    // 组件将要挂载
-    componentWillMount(){
-        console.log('componentWillMount----组件将要挂载到页面的时刻');   // 只在页面刷新时执行一次
-    }
+    // // 组件将要挂载
+    // componentWillMount(){
+    //     console.log('componentWillMount----组件将要挂载到页面的时刻');   // 只在页面刷新时执行一次
+    // }
 
-    // 组件挂载完成
-    componentDidMount(){
-        console.log('componentDidMount----组件挂载完成的时刻执行');  // 只在页面刷新时执行一次
-    }
+    // // 组件挂载完成
+    // componentDidMount(){
+    //     console.log('componentDidMount----组件挂载完成的时刻执行');  // 只在页面刷新时执行一次
+    // }
 
-    shouldComponentUpdate(){
-        console.log('1 - shouldComponentUpdate---组件发生改变前执行')
-        return true
-    }
+    // shouldComponentUpdate(){
+    //     console.log('1 - shouldComponentUpdate---组件发生改变前执行')
+    //     return true
+    // }
 
-    componentWillUpdate(){
-        console.log('2 - componentWillUpdate---组件更新前，shouldComponentUpdate函数之后执行')
-    }
+    // componentWillUpdate(){
+    //     console.log('2 - componentWillUpdate---组件更新前，shouldComponentUpdate函数之后执行')
+    // }
 
-    componentDidUpdate(){
-        console.log('4 - componentDidUpdate----组件更新之后执行')
-    }
+    // componentDidUpdate(){
+    //     console.log('4 - componentDidUpdate----组件更新之后执行')
+    // }
 
     // 渲染模板
     render() {
-        console.log('3 - render---组件挂载中.......');  // 只要有state和props变化就会执行
+        // console.log('3 - render---组件挂载中.......');  // 只要有state和props变化就会执行
         return (
             <Fragment>
                 <label htmlFor="jspang">加入服务：</label>

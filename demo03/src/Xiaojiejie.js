@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import './style.css'
+import XiaojiejieItem from './XiaojiejieItem'
 
 class Xiaojiejie extends Component {
     // JS的构造函数，由其他函数执行
@@ -18,6 +19,9 @@ class Xiaojiejie extends Component {
     };
     // 增加列表
     addList() {
+        if (this.state.inputValue === '') {
+            return;
+        }
         this.setState({ list: [...this.state.list, this.state.inputValue] })   // 扩展运算符
         this.setState({ inputValue: '' });  // 添加完清空输入框
     }
@@ -44,10 +48,17 @@ class Xiaojiejie extends Component {
                     {
                         this.state.list.map((item, index) => {
                             return (
-                                <li key={ index }>
-                                    { item }
-                                    <button onClick={ this.deleteItem.bind(this, index) }>X</button>
-                                </li>
+                                <div>
+                                    {
+                                    /**
+                                     * <li key={ index }>
+                                     * { item }
+                                     * <button onClick={ this.deleteItem.bind(this, index) }>X</button>
+                                     * </li>
+                                     */
+                                    }
+                                     <XiaojiejieItem />
+                                </div>
                             )
                         }) 
                     }

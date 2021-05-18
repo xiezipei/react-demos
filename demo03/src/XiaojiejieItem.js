@@ -1,4 +1,5 @@
 import React, { Component } from 'react';   // imrc
+import PropTypes from 'prop-types'
 
 class XiaojiejieItem extends Component {    // cc
     constructor(props) {
@@ -16,6 +17,12 @@ class XiaojiejieItem extends Component {    // cc
         console.log(this.props)
         this.props.deleteItem(this.props.index)
     }
+}
+
+XiaojiejieItem.propTypes = {
+    content: PropTypes.string,
+    deleteItem: PropTypes.func,
+    index: PropTypes.number
 }
  
 export default XiaojiejieItem;

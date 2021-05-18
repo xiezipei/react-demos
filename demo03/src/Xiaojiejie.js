@@ -22,8 +22,12 @@ class Xiaojiejie extends Component {
         if (this.state.inputValue === '') {
             return;
         }
-        this.setState({ list: [...this.state.list, this.state.inputValue] })   // 扩展运算符
-        this.setState({ inputValue: '' });  // 添加完清空输入框
+        this.setState({ 
+            list: [...this.state.list, this.state.inputValue],
+            inputValue: ''
+        }, () => {
+            console.log(this.ul.querySelectorAll('div').length) // 使用回调解决异步问题
+        })
     }
     // 删除选项
     deleteItem(index) {
@@ -44,7 +48,7 @@ class Xiaojiejie extends Component {
                     <input className="border-yellow" placeholder="请输入" value={this.state.inputValue} onChange={this.inputChange.bind(this)} />
                     <button onClick={this.addList.bind(this)}>增加服务</button>
                 </div>
-                <ul>
+                <ul ref={(ul)=>{this.ul = ul}}>
                     {
                         this.state.list.map((item, index) => {
                             return (

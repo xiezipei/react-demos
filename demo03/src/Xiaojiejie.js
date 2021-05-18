@@ -41,26 +41,16 @@ class Xiaojiejie extends Component {
             <Fragment>
                 <label htmlFor="jspang">加入服务：</label>
                 <div>
-                    <input className="border-yellow" placeholder="请输入" value={ this.state.inputValue } onChange={ this.inputChange.bind(this) } />
-                    <button onClick={ this.addList.bind(this) }>增加服务</button>
+                    <input className="border-yellow" placeholder="请输入" value={this.state.inputValue} onChange={this.inputChange.bind(this)} />
+                    <button onClick={this.addList.bind(this)}>增加服务</button>
                 </div>
                 <ul>
                     {
                         this.state.list.map((item, index) => {
                             return (
-                                <div>
-                                    {
-                                    /**
-                                     * <li key={ index }>
-                                     * { item }
-                                     * <button onClick={ this.deleteItem.bind(this, index) }>X</button>
-                                     * </li>
-                                     */
-                                    }
-                                     <XiaojiejieItem content={ item } />
-                                </div>
+                                <XiaojiejieItem key={index + item} content={item} index={index} />
                             )
-                        }) 
+                        })
                     }
                 </ul>
             </Fragment>

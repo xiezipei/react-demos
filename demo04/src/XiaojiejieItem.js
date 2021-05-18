@@ -6,14 +6,12 @@ class XiaojiejieItem extends Component {    // cc
         super(props)
         this.handleClick = this.handleClick.bind(this)
     }
-    componentWillMount(){
-        console.log('componentWillMount----组件将要挂载到页面的时刻')
+
+    componentWillReceiveProps(){
+        console.log('child - componentWillReceiveProps')
     }
-    componentDidMount(){
-        console.log('componentDidMount----组件挂载完成的时刻执行')
-    }
+
     render() {
-        console.log('render---组件挂载中.......')
         return (
             <div>
                 { this.props.content }

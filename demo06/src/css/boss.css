@@ -1,4 +1,5 @@
-.show {
+/* ---------- transition */
+/* .show {
     opacity: 1;
     transition: all 1.5s ease-in;
 }
@@ -6,4 +7,47 @@
 .hide {
     opacity: 0;
     transition: all 1.5s ease-in;
+} */
+
+
+/* ---------- keyframes */
+.show { animation: show-item 2s ease-in forwards; }
+.hide { animation: hide-item 2s ease-in forwards }
+
+@keyframes hide-item {
+    0% {
+        opacity: 1;
+        color: yellow;
+    }
+    25% {
+        opacity: 0.75;
+        color: green;
+    }
+    50% {
+        opacity: 0.5;
+        color: red;
+    }
+    75% {
+        opacity: 0.25;
+        color: greenyellow;
+    }
+    100% {
+        opacity: 0;
+        color: blue;
+    }
+}
+
+@keyframes show-item {
+    0% {
+        opacity: 0;
+        color: rgba(0, 0, 0, 0.25);
+    }
+    50% {
+        opacity: 0.5;
+        color: rgba(0, 0, 0, 0.5);
+    }
+    100% {
+        opacity: 1;
+        color: rgba(0, 0, 0, 1);
+    }
 }

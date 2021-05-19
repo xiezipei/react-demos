@@ -1,4 +1,4 @@
-/* ---------- transition */
+/* ---------- 方式 1、transition */
 /* .show {
     opacity: 1;
     transition: all 1.5s ease-in;
@@ -9,9 +9,8 @@
     transition: all 1.5s ease-in;
 } */
 
-
-/* ---------- keyframes */
-.show { animation: show-item 2s ease-in forwards; }
+/* ---------- 方式 2、keyframes */
+/* .show { animation: show-item 2s ease-in forwards; }
 .hide { animation: hide-item 2s ease-in forwards }
 
 @keyframes hide-item {
@@ -50,4 +49,20 @@
         opacity: 1;
         color: rgba(0, 0, 0, 1);
     }
+} */
+
+/* ---------- 方式 3、react-transition-group */
+.boss-text-enter {
+    opacity: 0;
+}
+.boss-text-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+}
+.boss-text-exit {
+    opacity: 1;
+}
+.boss-text-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
 }

@@ -2,3 +2,18 @@
     border: 1px solid #ccc;
     padding: 5px 10px;
 }
+
+.boss-text-enter {
+    opacity: 0;
+}
+.boss-text-enter-active {
+    opacity: 1;
+    transition: opacity 1000ms;
+}
+.boss-text-exit {
+    opacity: 1;
+}
+.boss-text-exit-active {
+    opacity: 0;
+    transition: opacity 1000ms;
+}

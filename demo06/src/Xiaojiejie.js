@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import Boss from './Boss'
 import './css/xiaojiejie.css'
 import XiaojiejieItem from './XiaojiejieItem'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 class Xiaojiejie extends Component {
     // JS的构造函数，由其他函数执行
@@ -22,19 +23,29 @@ class Xiaojiejie extends Component {
                     <input className="border-yellow" placeholder="请输入" value={this.state.inputValue} onChange={this.inputChange.bind(this)} />
                     <button onClick={this.addList.bind(this)}>增加服务</button>
                 </div>
-                <ul ref={(ul)=>{this.ul = ul}}>
-                    {
-                        this.state.list.map((item, index) => {
-                            return (
-                                <XiaojiejieItem 
-                                    key={index + item}
-                                    content={item}
-                                    index={index}
-                                    deleteItem={this.deleteItem.bind(this)}
-                                />
-                            )
-                        })
-                    }
+                <ul ref={(ul) => { this.ul = ul }}>
+                    <TransitionGroup>
+                        {
+                            this.state.list.map((item, index) => {
+                                return (
+                                    <CSSTransition
+                                        timeout={ 500 }
+                                        classNames='boss-text'
+                                        unmountOnExit
+                                        appear={ true }
+                                        key={ index + item }
+                                    >
+                                        <XiaojiejieItem
+                                            key={ index + item }
+                                            content={ item }
+                                            index={ index }
+                                            deleteItem={ this.deleteItem.bind(this) }
+                                        />
+                                    </CSSTransition>
+                                )
+                            })
+                        }
+                    </TransitionGroup>
                 </ul>
                 <Boss></Boss>
             </Fragment>
@@ -53,7 +64,7 @@ class Xiaojiejie extends Component {
         if (this.state.inputValue === '') {
             return;
         }
-        this.setState({ 
+        this.setState({
             list: [...this.state.list, this.state.inputValue],
             inputValue: ''
         });

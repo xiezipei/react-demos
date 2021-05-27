@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 const defaultState = {  //默认数据
-    InputValue: 'Write something',
+    inputValue: 'Write something',
     list: [
         'dosomething 1',
         'dosomething 2',
@@ -18,13 +18,20 @@ const defaultState = {  //默认数据
  * 要记住：reducer 里只能接收 state，不能改变 state
  */
 export default (state = defaultState, action)=>{  //就是一个方法函数
-    console.log(2, 'reducer');
-    // 如果类型正确，传递新状态
+    // 输入框值变化
     if (action.type === 'changeInput') {
-        let newState = JSON.parse(JSON.stringify(state))    // 深拷贝
-        newState.InputValue = action.InputValue
+        let newState = JSON.parse(JSON.stringify(state))
+        newState.inputValue = action.value
         return newState
     }
-    // 否则，传递原来状态
+
+    // 添加动作
+    if (action.type === 'addItem') {
+        let newState = JSON.parse(JSON.stringify(state))
+        newState.list.push(newState.inputValue)
+        newState.inputValue = ''
+        return newState
+    }
+
     return state
 }

@@ -4,51 +4,55 @@ import { Input, Button, List } from 'antd'
 import store from './store/index'
 
 class TodoList extends Component {
+    /** 构造方法 */
     constructor(props) {
         super(props)
 
-        // 获取 `state` 对象
+        // 获取数据容器引用
         this.state = store.getState()
 
-        // 绑定输入框值变化方法
+        // 绑定方法到组件
         this.changeInputValue = this.changeInputValue.bind(this)
-
-        // 转变this指向
         this.storeChange = this.storeChange.bind(this)
+        this.clickBtn = this.clickBtn.bind(this)
 
-        // 订阅 redux 状态
+        // 订阅容器状态变化
         store.subscribe(this.storeChange)
     }
-    storeChange(){
-        console.log(3, 'storeChange');
-        // 用了组件的 setState 方法
+
+    /** 容器改变事件 */
+    storeChange() {
         this.setState(store.getState())
     }
+
+    /** 输入框值改变事件 */
     changeInputValue(e) {
-        console.log(1, 'changeInputValue');
         const action = {
-            type: 'change_input_value',
+            type: 'changeInput',
             value: e.target.value
         }
-        store.dispatch(action); // 通过 `dispatch()` 方法把数据传递给 `store`
+        store.dispatch(action);
     }
+
+    /** 新增方法 */
+    clickBtn(e) {
+        const action = {
+            type: 'addItem'
+        }
+        store.dispatch(action)
+    }
+
+    /** 渲染方法 */
     render() {
         return (
             <div style={{ margin: '24px' }}>
+                <h1>this.state.inputValue: {this.state.inputValue}</h1>
                 <div>
-                    <Input 
-                        placeholder={ this.state.inputValue }
-                        style={{ width: '250px', marginRight: '10px' }} 
-                        onChange={ this.changeInputValue }
-                    />
-                    <Button type="primary">增加</Button>
+                    <Input placeholder={this.state.inputValue} style={{ width: '250px', marginRight: '10px' }} onChange={this.changeInputValue} />
+                    <Button type="primary" onClick={this.clickBtn} style={{ marginRight: '16px' }}>增加</Button>
                 </div>
                 <div style={{ marginTop: '10px', width: '324px' }}>
-                    <List
-                        bordered
-                        dataSource={this.state.list}
-                        renderItem={item => (<List.Item>{item}</List.Item>)}
-                    />
+                    <List bordered dataSource={this.state.list} renderItem={item => (<List.Item>{item}</List.Item>)} />
                 </div>
             </div>
         );

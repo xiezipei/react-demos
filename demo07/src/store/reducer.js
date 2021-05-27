@@ -2,8 +2,8 @@
 const defaultState = {  //默认数据
     inputValue: 'Write something',
     list: [
-        'dosomething 1',
-        'dosomething 2',
+        '123',
+        '456',
     ]
 }
 
@@ -25,11 +25,18 @@ export default (state = defaultState, action)=>{  //就是一个方法函数
         return newState
     }
 
-    // 添加动作
+    // 新增
     if (action.type === 'addItem') {
         let newState = JSON.parse(JSON.stringify(state))
         newState.list.push(newState.inputValue)
         newState.inputValue = ''
+        return newState
+    }
+
+    // 删除
+    if (action.type === 'deleteItem') {
+        let newState = JSON.parse(JSON.stringify(state))
+        newState.list.splice(action.index, 1)   // 利用 `splice` 删除数组元素
         return newState
     }
 

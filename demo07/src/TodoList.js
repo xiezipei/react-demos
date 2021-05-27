@@ -42,17 +42,32 @@ class TodoList extends Component {
         store.dispatch(action)
     }
 
+    /** 删除方法 */
+    deleteItem(index) {
+        console.log(index)
+        const action = {
+            type: 'deleteItem',
+            index
+        }
+        store.dispatch(action)
+    }
+
     /** 渲染方法 */
     render() {
         return (
-            <div style={{ margin: '24px' }}>
+            <div style={{ padding: '24px' }}>
                 <h1>this.state.inputValue: {this.state.inputValue}</h1>
                 <div>
                     <Input placeholder={this.state.inputValue} style={{ width: '250px', marginRight: '10px' }} onChange={this.changeInputValue} />
                     <Button type="primary" onClick={this.clickBtn} style={{ marginRight: '16px' }}>增加</Button>
                 </div>
                 <div style={{ marginTop: '10px', width: '324px' }}>
-                    <List bordered dataSource={this.state.list} renderItem={item => (<List.Item>{item}</List.Item>)} />
+                    <List bordered dataSource={this.state.list} renderItem={(item, index) => (
+                        <List.Item>
+                            {item} 
+                            <Button type="text" danger onClick={this.deleteItem.bind(this, index)}>X</Button>
+                        </List.Item>
+                    )} />
                 </div>
             </div>
         );

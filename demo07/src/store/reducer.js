@@ -1,10 +1,9 @@
+import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM } from './actionTypes'
+
 /* eslint-disable import/no-anonymous-default-export */
 const defaultState = {  //默认数据
-    inputValue: 'Write something',
-    list: [
-        '123',
-        '456',
-    ]
+    inputValue: '',
+    list: []
 }
 
 /**
@@ -19,22 +18,25 @@ const defaultState = {  //默认数据
  */
 export default (state = defaultState, action)=>{  //就是一个方法函数
     // 输入框值变化
-    if (action.type === 'changeInput') {
+    if (action.type === CHANGE_INPUT) {
         let newState = JSON.parse(JSON.stringify(state))
         newState.inputValue = action.value
         return newState
     }
 
     // 新增
-    if (action.type === 'addItem') {
+    if (action.type === ADD_ITEM) {
         let newState = JSON.parse(JSON.stringify(state))
         newState.list.push(newState.inputValue)
+        if (!newState.inputValue) {
+            return state
+        }
         newState.inputValue = ''
         return newState
     }
 
     // 删除
-    if (action.type === 'deleteItem') {
+    if (action.type === DELETE_ITEM) {
         let newState = JSON.parse(JSON.stringify(state))
         newState.list.splice(action.index, 1)   // 利用 `splice` 删除数组元素
         return newState

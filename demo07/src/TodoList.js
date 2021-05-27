@@ -58,7 +58,7 @@ class TodoList extends Component {
             <div style={{ padding: '24px' }}>
                 <h1>this.state.inputValue: {this.state.inputValue}</h1>
                 <div>
-                    <Input placeholder={this.state.inputValue} style={{ width: '250px', marginRight: '10px' }} onChange={this.changeInputValue} />
+                    <Input value={this.state.inputValue} placeholder={this.state.inputValue} style={{ width: '250px', marginRight: '10px' }} onChange={this.changeInputValue} />
                     <Button type="primary" onClick={this.clickBtn} style={{ marginRight: '16px' }}>增加</Button>
                 </div>
                 <div style={{ marginTop: '10px', width: '324px' }}>

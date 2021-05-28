@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import 'antd/dist/antd.css'
-import { Input, Button, List } from 'antd'
 import store from './store/index'
 import { changeInputAction, addItemAction, deleteItemAction } from './store/actionCreators'
+import TodoListUI from './TodoListUI'
 
 class TodoList extends Component {
     /** 构造方法 */
@@ -16,6 +15,7 @@ class TodoList extends Component {
         this.changeInputValue = this.changeInputValue.bind(this)
         this.storeChange = this.storeChange.bind(this)
         this.clickBtn = this.clickBtn.bind(this)
+        this.deleteItem = this.deleteItem.bind(this)
 
         // 订阅容器状态变化
         store.subscribe(this.storeChange)
@@ -47,21 +47,13 @@ class TodoList extends Component {
     /** 渲染方法 */
     render() {
         return (
-            <div style={{ padding: '24px' }}>
-                <h1>this.state.inputValue: {this.state.inputValue}</h1>
-                <div>
-                    <Input value={this.state.inputValue} placeholder={this.state.inputValue} style={{ width: '250px', marginRight: '10px' }} onChange={this.changeInputValue} />
-                    <Button type="primary" onClick={this.clickBtn} style={{ marginRight: '16px' }}>增加</Button>
-                </div>
-                <div style={{ marginTop: '10px', width: '324px' }}>
-                    <List bordered dataSource={this.state.list} renderItem={(item, index) => (
-                        <List.Item>
-                            {item} 
-                            <Button type="text" danger onClick={this.deleteItem.bind(this, index)}>X</Button>
-                        </List.Item>
-                    )} />
-                </div>
-            </div>
+            <TodoListUI
+                inputValue={this.state.inputValue}
+                list= {this.state.list}
+                changeInputValue={this.changeInputValue}
+                clickBtn={this.clickBtn}
+                deleteItem={this.deleteItem}
+            />
         );
     }
 }

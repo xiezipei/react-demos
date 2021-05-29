@@ -1,4 +1,4 @@
-import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM } from './actionTypes'
+import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM, GET_LIST } from './actionTypes'
 
 /* eslint-disable import/no-anonymous-default-export */
 const defaultState = {  //默认数据
@@ -41,6 +41,13 @@ export default (state = defaultState, action)=>{  //就是一个方法函数
         newState.list.splice(action.index, 1)   // 利用 `splice` 删除数组元素
         return newState
     }
+
+    // 获取数据
+    if (action.type === GET_LIST) {
+        let newState = JSON.parse(JSON.stringify(state))
+        newState.list = action.data;
+        return newState
+    } 
 
     return state
 }

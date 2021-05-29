@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import store from './store/index'
-import { changeInputAction, addItemAction, deleteItemAction } from './store/actionCreators'
+import { changeInputAction, addItemAction, deleteItemAction, getListAction } from './store/actionCreators'
 import TodoListUI from './TodoListUI'
 import axios from 'axios'
 
@@ -23,7 +23,7 @@ class TodoList extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://easy-mock.bookset.io/mock/60a3753447ef9e51d0ad2a87/react-demo/list/get').then(res => console.log(res));
+        this.getList()
     }
 
     /** 容器改变事件 */
@@ -47,6 +47,14 @@ class TodoList extends Component {
     deleteItem(index) {
         const action = deleteItemAction(index)
         store.dispatch(action)
+    }
+
+    /** 获取列表数据方法 */
+    getList() {
+        axios.get('https://easy-mock.bookset.io/mock/60a3753447ef9e51d0ad2a87/react-demo/list/get').then(res => {
+            const action = getListAction(res.data.data.list)
+            store.dispatch(action)
+        });
     }
 
     /** 渲染方法 */

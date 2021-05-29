@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import store from './store/index'
 import { changeInputAction, addItemAction, deleteItemAction } from './store/actionCreators'
 import TodoListUI from './TodoListUI'
+import axios from 'axios'
 
 class TodoList extends Component {
     /** 构造方法 */
@@ -19,6 +20,10 @@ class TodoList extends Component {
 
         // 订阅容器状态变化
         store.subscribe(this.storeChange)
+    }
+
+    componentDidMount() {
+        axios.get('https://easy-mock.bookset.io/mock/60a3753447ef9e51d0ad2a87/react-demo/list/get').then(res => console.log(res));
     }
 
     /** 容器改变事件 */

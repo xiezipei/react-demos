@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import store from './store'
+import { connect } from 'react-redux'
 
 class TodoList extends Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class TodoList extends Component {
         return (
             <div>
                 <div>
-                    <input value={ this.state.inputValue } />
+                    <input value={ this.props.inputValue } />
                     <button>提交</button>
                 </div>
                 <ul>
@@ -20,5 +21,13 @@ class TodoList extends Component {
         );
     }
 }
- 
-export default TodoList;
+
+// 把原来的state映射成组件中的 `props` 属性
+const stateToProps = (state) => {
+    return {
+        inputValue: state.inputValue
+    }
+}
+
+// 使用 `connect` 连接器，第一个参数是映射关系
+export default connect(stateToProps, null)(TodoList);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Index from './pages/Index'
+import Video from './pages/Video'
 import './index.css'
 
 function AppRouter() {
@@ -10,14 +11,15 @@ function AppRouter() {
                 <div className="leftNav">
                     <h3>一级导航</h3>
                     <ul>
-                        <li><Link to="/">博客首页</Link></li>
-                        <li><Link to="">视频教程</Link></li>
-                        <li><Link to="">职场技能</Link></li>
+                        <li><Link to="/">首页</Link></li>
+                        <li><Link to="/video">视频教程</Link></li>
+                        <li><Link to="">xxx</Link></li>
                     </ul>
                 </div>
-            </div>
-            <div className="rightMain">
-                <Route path="/" exact component={ Index }></Route>
+                <div className="rightMain">
+                    <Route path="/" exact component={ Index } />
+                    <Route path="/video" component={ Video } />
+                </div>
             </div>
         </Router>
     )

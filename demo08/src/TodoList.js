@@ -8,16 +8,17 @@ class TodoList extends Component {
         this.state = store.getState()
     }
 
-    render() { 
+    render() {
+        let { inputValue, inputChange, clickButton, list } = this.props;    //使用解构赋值精简代码
         return (
             <div>
                 <div>
-                    <input value={ this.props.inputValue } onChange={ this.props.inputChange } />
-                    <button onClick={ this.props.clickButton }>提交</button>
+                    <input value={ inputValue } onChange={ inputChange } />
+                    <button onClick={ clickButton }>提交</button>
                 </div>
                 <ul>
                     {
-                        this.props.list.map((item, index) => {
+                        list.map((item, index) => {
                             return (<li key={ index }>{ item }</li>)
                         })
                     }

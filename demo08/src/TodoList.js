@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 
+// 由于把业务逻辑剥离了，可以写成UI组件（也就是无状态组件）
 const TodoList = (props) => {
     let { inputValue, inputChange, clickButton, list } = props;
     return (
@@ -29,22 +30,20 @@ const stateToProps = (state) => {
 
 const dispatchToProps = (dispatch) => {
     return {
+        // 输入框值改变事件
         inputChange(e) {
-            let action = {
-                type: 'change_input',
-                value: e.target.value
-            }
+            let action = { type: 'change_input', value: e.target.value }
             dispatch(action)
         },
+        // 按钮新增事件
         clickButton() {
-            let action = {
-                type: 'add_item'
-            }
+            let action = { type: 'add_item' }
             dispatch(action)
         }
     }
 }
 
-// connect的作用是把ui组件（无状态组件）和业务逻辑代码分开，
-// 然后通过connect再连接在一起，让代码更加清晰和易于维护
+// connect的作用：
+// 1. 把UI组件（无状态组件）和业务逻辑代码分开，
+// 2. 然后通过connect再连接在一起，让代码更加清晰和易于维护
 export default connect(stateToProps, dispatchToProps)(TodoList);

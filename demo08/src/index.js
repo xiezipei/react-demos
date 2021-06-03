@@ -4,8 +4,8 @@ import TodoList from './TodoList'
 import { Provider } from 'react-redux'
 import store from './store'
 
-// 使用 `Provider` 提供器
 const App = (
+    // 使用 Provider 把程序框起来，从而达到变量共享目的
     <Provider store={ store }>
         <TodoList />
     </Provider>

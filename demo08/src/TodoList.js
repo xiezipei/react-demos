@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 // 由于把业务逻辑剥离了，可以写成UI组件（也就是无状态组件）
 const TodoList = (props) => {
-    let { inputValue, inputChange, clickButton, list } = props;
+    let { inputValue, inputChange, clickButton, list, deleteItem } = props;
     return (
         <div>
             <div>
@@ -13,7 +13,12 @@ const TodoList = (props) => {
             <ul>
                 {
                     list.map((item, index) => {
-                        return (<li key={ index }>{ item }</li>)
+                        return (
+                            <li key={ index }>
+                                { item }
+                                <button onClick={ deleteItem(item) }>X</button>
+                            </li>
+                        )
                     })
                 }
             </ul>
@@ -39,7 +44,13 @@ const dispatchToProps = (dispatch) => {
         clickButton() {
             let action = { type: 'add_item' }
             dispatch(action)
-        }
+        },
+        // 按钮删除事件
+        deleteItem(index) {
+            // let action = { type: 'delete_item' }
+            // dispatch(action)
+            console.log(index)
+        },
     }
 }
 

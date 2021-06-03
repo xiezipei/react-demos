@@ -10,7 +10,7 @@ class Video extends Component {
     render() { 
         return (
             <div>
-                <div><h3>视频教程</h3></div>
+                <div><h3>二级导航</h3></div>
                 <div className="topNav">
                     <ul>
                         <li><Link to="/video/angular">angular</Link></li>

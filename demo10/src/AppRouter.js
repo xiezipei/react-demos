@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Index from './pages/Index'
 import Video from './pages/Video'
+import Workplace from './pages/Workplace'
 import './index.css'
 
 function AppRouter() {
@@ -13,12 +14,13 @@ function AppRouter() {
                     <ul>
                         <li><Link to="/">首页</Link></li>
                         <li><Link to="/video">视频教程</Link></li>
-                        <li><Link to="">xxx</Link></li>
+                        <li><Link to="/workplace">工作空间</Link></li>
                     </ul>
                 </div>
                 <div className="rightMain">
                     <Route path="/" exact component={ Index } />
                     <Route path="/video" component={ Video } />
+                    <Route path="/workplace" component={ Workplace } />
                 </div>
             </div>
         </Router>

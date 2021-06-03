@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
-function Index() {
-    return (<h2>Index</h2>)
-}
-
-function List() {
-    return (<h2>List</h2>)
-}
+import Index from './pages/Index'
+import List from './pages/List'
 
 class AppRouter extends Component {
     state = {  }
@@ -18,6 +12,7 @@ class AppRouter extends Component {
                     <li><Link to="/">首页</Link></li>
                     <li><Link to="/list/">列表</Link></li>
                 </ul>
+                {/* exact = 精准匹配 */}
                 <Route path="/" exact component={ Index } />
                 <Route path="/list/" exact component={ List } />
             </Router>

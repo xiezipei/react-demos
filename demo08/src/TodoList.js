@@ -45,7 +45,7 @@ const dispatchToProps = (dispatch) => {
             let action = { type: 'add_item' }
             dispatch(action)
         },
-        // 按钮删除事件
+        // @Todo 按钮删除事件
         deleteItem(index) {
             // let action = { type: 'delete_item' }
             // dispatch(action)

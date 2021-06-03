@@ -13,11 +13,13 @@ class App extends Component {
     render() { 
         return (
             <div>
-                <h1>你点击了 { this.state.count } 次。</h1>
-                <button onClick={ this.addCount.bind(this) }>点击我</button>
+                <p>你点击了 { this.state.count } 次。</p>
+                <button onClick={ this.addCount.bind(this) }>
+                    点击我
+                </button>
             </div>
-        );
+        )
     }
 }
  
-export default App;
+export default App

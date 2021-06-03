@@ -10,11 +10,11 @@ class AppRouter extends Component {
             <Router>
                 <ul>
                     <li><Link to="/">首页</Link></li>
-                    <li><Link to="/list/">列表</Link></li>
+                    <li><Link to="/list/123">列表</Link></li>
                 </ul>
                 {/* exact = 精准匹配 */}
                 <Route path="/" exact component={ Index } />
-                <Route path="/list/" exact component={ List } />
+                <Route path="/list/:id" exact component={ List } />
             </Router>
         );
     }

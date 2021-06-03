@@ -7,27 +7,49 @@ class TodoList extends Component {
         super(props);
         this.state = store.getState()
     }
+
     render() { 
         return (
             <div>
                 <div>
-                    <input value={ this.props.inputValue } />
-                    <button>提交</button>
+                    <input value={ this.props.inputValue } onChange={ this.props.inputChange } />
+                    <button onClick={ this.props.clickButton }>提交</button>
                 </div>
                 <ul>
-                    <li>hello</li>
+                    {
+                        this.props.list.map((item, index) => {
+                            return (<li key={ index }>{ item }</li>)
+                        })
+                    }
                 </ul>
             </div>
         );
     }
 }
 
-// 把原来的state映射成组件中的 `props` 属性
 const stateToProps = (state) => {
     return {
-        inputValue: state.inputValue
+        inputValue: state.inputValue,
+        list: state.list
     }
 }
 
-// 使用 `connect` 连接器，第一个参数是映射关系
-export default connect(stateToProps, null)(TodoList);
+const dispatchToProps = (dispatch) => {
+    return {
+        inputChange(e) {
+            let action = {
+                type: 'change_input',
+                value: e.target.value
+            }
+            dispatch(action)
+        },
+        clickButton() {
+            let action = {
+                type: 'add_item'
+            }
+            dispatch(action)
+        }
+    }
+}
+
+export default connect(stateToProps, dispatchToProps)(TodoList);

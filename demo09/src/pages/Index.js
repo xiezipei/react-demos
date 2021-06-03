@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class Index extends Component {
     constructor(props) {
@@ -11,31 +11,37 @@ class Index extends Component {
                 { cid: 789, title: '789' },
             ]
         }
+
+        // 编程式重定向
+        setTimeout(() => {
+            this.props.history.push("/home/")
+        }, 3000)
+        
     }
     render() { 
-        // return (
-        //     <div>
-        //         <h1>Index</h1>
-        //         <ul>
-        //             {
-        //                 this.state.list.map((item, index) => {
-        //                     return (
-        //                         <li key={ index }>
-        //                             <Link to={`/list/${item.cid}`}>
-        //                                 { item.title }
-        //                             </Link>
-        //                         </li>
-        //                     )
-        //                 })
-        //             }
-        //         </ul>
-        //     </div>
-        // );
+        return (
+            <div>
+                <h1>Index</h1>
+                <ul>
+                    {
+                        this.state.list.map((item, index) => {
+                            return (
+                                <li key={ index }>
+                                    <Link to={`/list/${item.cid}`}>
+                                        { item.title }
+                                    </Link>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+            </div>
+        );
 
         // 标签重定向
-        return (
-            <Redirect to="/home/" />
-        )
+        // return (
+        //     <Redirect to="/home/" />
+        // )
     }
 }
  

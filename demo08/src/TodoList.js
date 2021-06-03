@@ -16,7 +16,7 @@ const TodoList = (props) => {
                         return (
                             <li key={ index }>
                                 { item }
-                                <button onClick={ deleteItem(item) }>X</button>
+                                <button onClick={ () => deleteItem(index) }>X</button>
                             </li>
                         )
                     })
@@ -45,11 +45,10 @@ const dispatchToProps = (dispatch) => {
             let action = { type: 'add_item' }
             dispatch(action)
         },
-        // @Todo 按钮删除事件
+        // 按钮删除事件
         deleteItem(index) {
-            // let action = { type: 'delete_item' }
-            // dispatch(action)
-            console.log(index)
+            let action = { type: 'delete_item', index }
+            dispatch(action)
         },
     }
 }

@@ -24,13 +24,10 @@ const d = (state = defaultState, action) => {
     }
 
     // 动作类型 3、删除待办
-    if (action.type === 'add_item') {
+    if (action.type === 'delete_item') {
         let newState = JSON.parse(JSON.stringify(state))
-        if (newState.inputValue) {  // 非空校验
-            newState.list.push(newState.inputValue)
-            newState.inputValue = ''
-            return newState
-        }
+        newState.list.splice(action.index, 1)
+        return newState
     }
 
     // 默认返回当前 state

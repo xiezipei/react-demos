@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class Index extends Component {
     constructor(props) {
@@ -13,22 +13,29 @@ class Index extends Component {
         }
     }
     render() { 
+        // return (
+        //     <div>
+        //         <h1>Index</h1>
+        //         <ul>
+        //             {
+        //                 this.state.list.map((item, index) => {
+        //                     return (
+        //                         <li key={ index }>
+        //                             <Link to={`/list/${item.cid}`}>
+        //                                 { item.title }
+        //                             </Link>
+        //                         </li>
+        //                     )
+        //                 })
+        //             }
+        //         </ul>
+        //     </div>
+        // );
+
+        // 标签重定向
         return (
-            <div>
-                <h1>Index</h1>
-                <ul>
-                    {
-                        this.state.list.map((item, index) => {
-                            return (
-                                <li key={ index }>
-                                    <Link to={`/list/${item.cid}`}>{ item.title }</Link>
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-            </div>
-        );
+            <Redirect to="/home/" />
+        )
     }
 }
  

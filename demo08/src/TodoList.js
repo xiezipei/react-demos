@@ -1,31 +1,23 @@
-import React, { Component } from 'react';
-import store from './store'
+import React from 'react';
 import { connect } from 'react-redux'
 
-class TodoList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = store.getState()
-    }
-
-    render() {
-        let { inputValue, inputChange, clickButton, list } = this.props;    //使用解构赋值精简代码
-        return (
+const TodoList = (props) => {
+    let { inputValue, inputChange, clickButton, list } = props;
+    return (
+        <div>
             <div>
-                <div>
-                    <input value={ inputValue } onChange={ inputChange } />
-                    <button onClick={ clickButton }>提交</button>
-                </div>
-                <ul>
-                    {
-                        list.map((item, index) => {
-                            return (<li key={ index }>{ item }</li>)
-                        })
-                    }
-                </ul>
+                <input value={ inputValue } onChange={ inputChange } />
+                <button onClick={ clickButton }>提交</button>
             </div>
-        );
-    }
+            <ul>
+                {
+                    list.map((item, index) => {
+                        return (<li key={ index }>{ item }</li>)
+                    })
+                }
+            </ul>
+        </div>
+    );
 }
 
 const stateToProps = (state) => {
@@ -53,4 +45,6 @@ const dispatchToProps = (dispatch) => {
     }
 }
 
+// connect的作用是把ui组件（无状态组件）和业务逻辑代码分开，
+// 然后通过connect再连接在一起，让代码更加清晰和易于维护
 export default connect(stateToProps, dispatchToProps)(TodoList);

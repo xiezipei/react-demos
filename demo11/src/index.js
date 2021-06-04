@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom'
 // import LifeCycleByHooks from './LifeCycleByHooks'
 // import AppUseEffect from './AppUseEffect'
 // import AppUseContext from './AppUseContext'
-import AppReducer from './AppReducer'
+// import AppReducer from './AppReducer'
+import AppReducer2 from './reducer2/AppReducer2'
 
-ReactDOM.render(<AppReducer />, document.getElementById('root'))
+ReactDOM.render(<AppReducer2 />, document.getElementById('root'))

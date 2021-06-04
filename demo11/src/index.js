@@ -11,6 +11,7 @@ import ReactDOM from 'react-dom'
 // import AppReducer2 from './AppReducer2/AppReducer2'
 // import AppUseMemo from './AppUseMemo/AppUseMemo'
 // import AppUseRef from './AppUseRef'
-import AppUseRef2 from './AppUseRef2'
+// import AppUseRef2 from './AppUseRef2'
+import AppCustomerHooks from './AppCustomerHooks/AppCustomerHooks'
 
-ReactDOM.render(<AppUseRef2 />, document.getElementById('root'))
+ReactDOM.render(<AppCustomerHooks />, document.getElementById('root'))

@@ -6,6 +6,7 @@ import { Color } from './Color'
 function AppReducer2() {
     return (
         <div>
+            {/* Color组件包裹两个子组件 */}
             <Color>
                 <ShowArea />
                 <Buttons />

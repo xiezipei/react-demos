@@ -8,6 +8,6 @@ import ReactDOM from 'react-dom'
 // import AppUseEffect from './AppUseEffect'
 // import AppUseContext from './AppUseContext'
 // import AppReducer from './AppReducer'
-import AppReducer2 from './reducer2/AppReducer2'
+import AppReducer2 from './AppReducer2/AppReducer2'
 
 ReactDOM.render(<AppReducer2 />, document.getElementById('root'))

@@ -1,9 +1,15 @@
+import { useMemo } from 'react';
+
 function ChildComponent({ name, children }) {
     function changeName(name) {
         console.log('changeName =>', name)
         return name
     }
-    const actionName = changeName(name)
+
+    const actionName = useMemo(() => {
+        return changeName(name)
+    }, [name])
+
     return (
         <div>
             <div>{ actionName }</div>

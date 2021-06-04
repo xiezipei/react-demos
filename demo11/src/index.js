@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom'
 // import AppByHooks2 from './AppByHooks2'
 // import LifeCycle from './LifeCycle'
 // import LifeCycleByHooks from './LifeCycleByHooks'
-import AppUseEffect from './AppUseEffect'
+// import AppUseEffect from './AppUseEffect'
+import AppUseContext from './AppUseContext'
 
-ReactDOM.render(<AppUseEffect />, document.getElementById('root'))
+ReactDOM.render(<AppUseContext />, document.getElementById('root'))

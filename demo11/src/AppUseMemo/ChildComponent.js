@@ -8,7 +8,7 @@ function ChildComponent({ name, children }) {
 
     const actionName = useMemo(() => {
         return changeName(name)
-    }, [name])
+    }, [name])  // 使用 `useMemo` 优化性能问题
 
     return (
         <div>

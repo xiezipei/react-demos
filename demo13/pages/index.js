@@ -7,7 +7,15 @@ const Home = () => {
   }
 
   function gotoPageC() {
-    Router.push('/pageC?name=456')
+    // Router.push('/pageC?name=456')
+    
+    // 对象式传参
+    Router.push({
+      pathname: '/pageC',
+      query: {
+        name: 456
+      }
+    })
   }
 
   return (
@@ -16,7 +24,9 @@ const Home = () => {
       <ul>
         <li><Link href="/pageA"><a>Go to Page A.</a></Link></li>
         <li><Link href="/pageB"><a>Go to Page B.</a></Link></li>
-        <li><Link href="/pageC?name=123"><a>Go to Page C with 123.</a></Link></li>
+        {/* <li><Link href="/pageC?name=123"><a>Go to Page C with 123.</a></Link></li> */}
+        {/* 对象式传参 */}
+        <li><Link href={{ pathname: '/pageC', query: {name: '123'}}}><a>Go to Page C with 123.</a></Link></li>
       </ul>
       <div>
         <button onClick={gotoPageA}>跳转到PageA</button>

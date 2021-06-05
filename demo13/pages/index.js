@@ -81,8 +81,8 @@ const Home = () => {
         {/* <li><Link href="/pageC?name=123"><a>Go to Page C with 123.</a></Link></li> */}
         {/* 对象式传参 */}
         <li><Link href={{ pathname: '/pageC', query: { name: '123' } }}><a>Go to Page C with 123</a></Link></li>
-        <li><Link href="#pageD"><a>Go to Page D with error</a></Link></li>
-        <li><Link href="#pageE"><a>Go to Page E with hash</a></Link></li>
+        <li><Link href="#pageD"><a>Go to Page D with hash</a></Link></li>
+        <li><Link href="/pageE"><a>Go to Page E and request data</a></Link></li>
       </ul>
       <div>
         <button onClick={gotoPageA}>跳转到PageA</button>

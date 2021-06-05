@@ -83,7 +83,9 @@ const Home = () => {
         <li><Link href={{ pathname: '/pageC', query: { name: '123' } }}><a>Go to Page C with 123</a></Link></li>
         <li><Link href="#pageD"><a>Go to Page D with hash</a></Link></li>
         <li><Link href="/pageE"><a>Go to Page E and request data</a></Link></li>
+        <li><Link href="/pageF"><a>Go to Page F with style</a></Link></li>
       </ul>
+      <br />
       <div>
         <button onClick={gotoPageA}>跳转到PageA</button>
         <button onClick={gotoPageC}>跳转到PageC with 456</button>

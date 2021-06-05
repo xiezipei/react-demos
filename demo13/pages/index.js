@@ -2,13 +2,19 @@ import Link from 'next/link'
 import Router from 'next/router'
 
 const Home = () => {
+  /**
+   * 跳转到 PageA
+   */
   function gotoPageA() {
     Router.push('/pageA')
   }
 
+  /**
+   * 跳转到 PageB
+   */
   function gotoPageC() {
     // Router.push('/pageC?name=456')
-    
+
     // 对象式传参
     Router.push({
       pathname: '/pageC',
@@ -18,15 +24,65 @@ const Home = () => {
     })
   }
 
+  /**
+   * 路由监听：routeChangeStart
+   * 
+   * 路由开始变化
+   */
+  Router.events.on('routeChangeStart', (...args) => {
+    // console.log('= 1. routeChangeStart 路由开始变化,参数为:', ...args)
+    console.log('= 1. 路由开始变化')
+  })
+
+  /**
+   * 路由监听：routeChangeComplete
+   */
+  Router.events.on('routeChangeComplete', (...args) => {
+    console.log('== 2. 路由变化完成')
+  })
+
+  /**
+   * 路由监听：beforeHistoryChange
+   */
+  Router.events.on('beforeHistoryChange', (...args) => {
+    console.log('=== 3. 在改变浏览器 history 之前触发')
+  })
+
+  /**
+   * 路由监听：routeChangeError
+   */
+  Router.events.on('routeChangeError', (...args) => {
+    console.log('==== 4. 跳转发生错误')
+  })
+
+  /**
+   * 路由监听：hashChangeStart
+   */
+  Router.events.on('hashChangeStart', (...args) => {
+    console.log('===== 5. hash跳转开始时执行')
+  })
+
+  /**
+   * 路由监听：hashChangeComplete
+   */
+  Router.events.on('hashChangeComplete', (...args) => {
+    console.log('====== 6. hash跳转完成时')
+  })
+
+  /**
+   * 模板渲染
+   */
   return (
     <div>
       <h1>Home</h1>
       <ul>
-        <li><Link href="/pageA"><a>Go to Page A.</a></Link></li>
-        <li><Link href="/pageB"><a>Go to Page B.</a></Link></li>
+        <li><Link href="/pageA"><a>Go to Page A</a></Link></li>
+        <li><Link href="/pageB"><a>Go to Page B</a></Link></li>
         {/* <li><Link href="/pageC?name=123"><a>Go to Page C with 123.</a></Link></li> */}
         {/* 对象式传参 */}
-        <li><Link href={{ pathname: '/pageC', query: {name: '123'}}}><a>Go to Page C with 123.</a></Link></li>
+        <li><Link href={{ pathname: '/pageC', query: { name: '123' } }}><a>Go to Page C with 123</a></Link></li>
+        <li><Link href="#pageD"><a>Go to Page D with error</a></Link></li>
+        <li><Link href="#pageE"><a>Go to Page E with hash</a></Link></li>
       </ul>
       <div>
         <button onClick={gotoPageA}>跳转到PageA</button>
@@ -34,6 +90,7 @@ const Home = () => {
       </div>
     </div>
   )
+
 }
 
 export default Home

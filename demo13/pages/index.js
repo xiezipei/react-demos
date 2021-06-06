@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Router from 'next/router'
+import MyHeader from "../components/Header"
 
 const Home = () => {
   /**
@@ -74,6 +75,7 @@ const Home = () => {
    */
   return (
     <div>
+      <MyHeader />
       <h1>Home</h1>
       <ul>
         <li><Link href="/pageA"><a>Go to Page A</a></Link></li>

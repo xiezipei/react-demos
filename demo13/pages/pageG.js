@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 
-const Lazy = dynamic(import('../components/lazy'))
+const Lazy = dynamic(import('../components/lazy'))  // Here!
 
 function Time() {
     const [nowTime, setTime] = useState(Date.now())

@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
+
+const Lazy = dynamic(import('../components/lazy'))
 
 function Time() {
     const [nowTime, setTime] = useState(Date.now())
@@ -16,6 +19,7 @@ function Time() {
             <div>
                 <button onClick={changeTime}>改变时间格式</button>
             </div>
+            <Lazy></Lazy>
             <Link href="/"><a>回到首页</a></Link>
         </div>
     )

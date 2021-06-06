@@ -85,6 +85,7 @@ const Home = () => {
         <li><Link href="/pageE"><a>Go to Page E and request data</a></Link></li>
         <li><Link href="/pageF"><a>Go to Page F with style</a></Link></li>
         <li><Link href="/pageG"><a>Go to Page G with lazy loading</a></Link></li>
+        <li><Link href="/pageH"><a>Go to Page H with head content</a></Link></li>
       </ul>
       <br />
       <div>
